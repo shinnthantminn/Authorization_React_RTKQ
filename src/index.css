@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .form-input {
+        @apply w-full py-1 px-2 rounded outline-0 rounded border hover:ring-2 hover:ring-blue-300 duration-300
+    }
+}
