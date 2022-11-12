@@ -8,17 +8,17 @@ import { useEffect } from "react";
 const useAuth = () => {
   const dispatch = useDispatch();
 
-  const { data, error, isSuccess, isLoading } = useGetMeQuery();
+  const response = useGetMeQuery();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    if (!error) {
+    if (!response.error) {
       if (token) {
         const user = new userModel(
           token,
-          data?.result.username,
-          data?.result.email
+          response.data?.result.username,
+          response.data?.result.email
         );
 
         dispatch(loginReducer({ ...user }));
@@ -27,9 +27,9 @@ const useAuth = () => {
       localStorage.removeItem("token");
       dispatch(logoutReducer());
     }
-  }, [data]);
+  }, [response]);
 
-  return { isSuccess, isLoading };
+  return { isSuccess: response.isSuccess, isLoading: response.isLoading };
 };
 
 export default useAuth;
