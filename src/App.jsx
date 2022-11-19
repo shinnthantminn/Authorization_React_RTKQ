@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 //Page
-import { Login, Register } from "./Page/index.jsx";
+import { Login, Register, Success } from "./Page/index.jsx";
 import { Nav } from "./Components/index.jsx";
 
 // authorizations
@@ -16,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path={"/"} element={<Login />} />
           <Route path={"/register"} element={<Register />} />
+          <Route path="/home" element={<Success />} />
         </Routes>
       </div>
     </div>
