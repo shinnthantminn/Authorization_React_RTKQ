@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
-import { useLoginMutation } from "../store/service/endPoint/AuthEndPoint";
+// redux
 import { useDispatch, useSelector } from "react-redux";
+import { useLoginMutation } from "../store/service/endPoint/AuthEndPoint";
 import { loginReducer } from "../store/slicer/authSlicer";
 
+// blue prints
 import { userModel } from "../model/user.model";
 
 // Middleware
@@ -10,6 +12,8 @@ import Defender from "../helper/middleware/Defender";
 
 const Login = () => {
   const formRef = useRef();
+
+  // redux
   const [login, response] = useLoginMutation();
   const { isAuthorization } = useSelector((state) => state.auth);
 
@@ -36,6 +40,7 @@ const Login = () => {
     }
   }, [response]);
 
+  // loading
   if (response.isLoading) {
     return (
       <div className="flex justify-center items-center h-full">

@@ -1,6 +1,10 @@
-import { useRegisterMutation } from "../store/service/endPoint/AuthEndPoint";
 import { useEffect, useRef } from "react";
+
+// redux
+import { useRegisterMutation } from "../store/service/endPoint/AuthEndPoint";
 import { useSelector } from "react-redux";
+
+// router
 import { useNavigate } from "react-router-dom";
 
 // middleware for private route
@@ -8,8 +12,9 @@ import Defender from "../helper/middleware/Defender";
 
 const Register = () => {
   const formRef = useRef();
-  const [register, response] = useRegisterMutation();
 
+  // redux
+  const [register, response] = useRegisterMutation();
   const { isAuthorization } = useSelector((state) => state.auth);
 
   const nav = useNavigate();

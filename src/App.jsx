@@ -1,12 +1,16 @@
+// routing 
 import { Routes, Route } from "react-router-dom";
 //Page
 import { Login, Register, Success } from "./Page/index.jsx";
+
+// components
 import { Nav } from "./Components/index.jsx";
 
 // authorizations
 import useAuth from "./helper/auth/useAuth.jsx";
 
 const App = () => {
+  // authorizations statements
   const { isLoading, isSuccess } = useAuth();
 
   return (
